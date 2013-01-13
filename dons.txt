@@ -1,0 +1,5 @@
+oosidat@uw.ca 01/01/10 500
+msid@uw.ca 02/02/10 20
+oosidat@uw.ca 05/05/10 100
+msid@uw.ca 07/07/10 200
+osid@g.ca 09/09/10 1000
