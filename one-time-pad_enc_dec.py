@@ -1,13 +1,14 @@
 ## One Time Pad
 ## Based on the Encryption / Decryption Functions from http://djao.math.uwaterloo.ca/cgi-bin/otp.cgi
 
-# Creating Alphabet to Numeric Representation, character for space given number 27
+import re
+import string
+
+# Creating Alphabet to Numeric Representation, character for space given number 0
 alphadict = dict( (key, ord(key)-64) for key in string.ascii_uppercase )
 alphadict[' '] = 0
 reverse_alphadict = dict([[v,k] for k,v in alphadict.items()])
 
-import re
-import string
 
 ## Encryption Function
 def encrypt(message,key):
