@@ -3,6 +3,7 @@
 
 import re
 import string
+import os
 
 # Creating Alphabet to Numeric Representation, character for space given number 0
 alphadict = dict( (key, ord(key)-64) for key in string.ascii_uppercase )
@@ -51,3 +52,20 @@ def decrypt(cipher,key):
     m_list = [reverse_alphadict[element] for element in m_list]
     message = ''.join(m_list)
     print cipher + '\n' + key + '\n' + message
+
+cipher1 = file('C:/Users/Osama Sidat/Documents/Python Projects/a1q3_c1.txt', 'r')
+cipher2 = file('C:/Users/Osama Sidat/Documents/Python Projects/a1q3_c2.txt', 'r')
+cipherstring1 = cipher1.read()
+cipherstring2 = cipher2.read()
+#print cipherstring1
+#print cipherstring2
+c1_list = list(cipherstring1)
+c2_list = list(cipherstring2)
+c1_list = [alphadict[element] for element in c1_list]
+c2_list = [alphadict[element] for element in c2_list]
+c1c2_list = [(c1_list[i] - c2_list[i]) % 27 for i in range(0,len(c1_list))]
+c1c2_list = [reverse_alphadict[element] for element in c1c2_list]
+c1minusc2 = ''.join(c1c2_list)
+print c1minusc2
+starts = [match.start() for match in re.finditer(re.escape('MPRISES'), c1minusc2)]
+print starts
