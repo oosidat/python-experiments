@@ -31,6 +31,7 @@ def encrypt(message,key):
     c_list = [reverse_alphadict[element] for element in c_list]
     cipher = ''.join(c_list)
     print message + '\n' + key + '\n' + cipher
+    return cipher
 
 ## Decryption Function
 def decrypt(cipher,key):
@@ -51,7 +52,8 @@ def decrypt(cipher,key):
     # Mapping message numbers to alphabet string
     m_list = [reverse_alphadict[element] for element in m_list]
     message = ''.join(m_list)
-    print cipher + '\n' + key + '\n' + message
+    print 'Cipher: '+cipher + '\n' + 'Key: '+key + '\n' + 'Message: '+message
+    return message
 
 cipher1 = file('C:/Users/Osama Sidat/Documents/Python Projects/a1q3_c1.txt', 'r')
 cipher2 = file('C:/Users/Osama Sidat/Documents/Python Projects/a1q3_c2.txt', 'r')
@@ -66,6 +68,16 @@ c2_list = [alphadict[element] for element in c2_list]
 c1c2_list = [(c1_list[i] - c2_list[i]) % 27 for i in range(0,len(c1_list))]
 c1c2_list = [reverse_alphadict[element] for element in c1c2_list]
 c1minusc2 = ''.join(c1c2_list)
-print c1minusc2
-starts = [match.start() for match in re.finditer(re.escape('MPRISES'), c1minusc2)]
-print starts
+#print c1minusc2
+pos_MPRISES = [match.start() for match in re.finditer(re.escape('PRISES'), c1minusc2)]
+
+#print pos_MPRISES
+#print c1_list[1308-3:1314]
+#print cipherstring1[1308-3:1314]
+
+teststr = 'ENTERPRISES'
+startpos = 1309 - (len(teststr)-len('PRISES'))
+print startpos
+decrypt(cipherstring2[startpos:1315],decrypt(cipherstring1[startpos:1315],teststr))
+
+
