@@ -75,7 +75,7 @@ pos_MPRISES = [match.start() for match in re.finditer(re.escape('PRISES'), c1min
 #print c1_list[1308-3:1314]
 #print cipherstring1[1308-3:1314]
 
-teststr = 'ENTERPRISES'
+teststr = 'SURPRISES'
 startpos = 1309 - (len(teststr)-len('PRISES'))
 print startpos
 decrypt(cipherstring2[startpos:1315],decrypt(cipherstring1[startpos:1315],teststr))
