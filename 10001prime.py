@@ -6,9 +6,9 @@ def isprime(n):
         else: testfac = testfac + 1
     return True
 
-def thousprime():
+def thousprime(m):
     primecount = 0
-    while primecount < 10001:
+    while primecount < m:
         starter = 2
         if isprime(starter) == True:
             starter = starter + 1
@@ -16,4 +16,4 @@ def thousprime():
         else: starter = starter + 1
     return starter
 
-thousprime()
+thousprime(10001)
