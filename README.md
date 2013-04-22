@@ -1,0 +1,1 @@
+This is a collection of Python code I've written over time to solve different problems or perform different tasks.
