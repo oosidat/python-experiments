@@ -11,15 +11,22 @@ def isprime(n):
 
 def prlst(m):
     L = [2]
-    count = 1
-    x = 3
-    while count < m:
-        if(isprime(x) == True):
-            L.append(x)
-            count = count + 1
-            x = x + 2
-        else: x = x + 2
+    i = 3
+    while i < m:
+        if(isprime(i) == True):
+            L.append(i)
+            i = i + 2
+        else: i = i + 2
     print "Length of L is %d" % (len(L))
     return L
 
-print prlst(10001)
+def prime(n):
+    testfac = 2
+    while testfac < n:
+        if n % testfac == 0:
+            return False
+        else: testfac = testfac + 1
+    return True
+	
+## Print the sum of the first x primes?	
+print sum(prlst(2000000))
